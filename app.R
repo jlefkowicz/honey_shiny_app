@@ -267,3 +267,22 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
+
+list.files()
+rsconnect::writeManifest(
+  appDir = ".",
+  appPrimaryDoc = "app.R",
+  appMode = "shiny"
+)
+
+
+
+cd "/Users/joshlefkowicz/Geneseo Courses/Data Analytics/DANL 310/honey_shiny_app"
+
+git init
+git add .
+git commit -m "Add honey Shiny app"
+git branch -M main
+git remote add origin https://github.com/jlefkowicz/danl210webpilot.github.io
+git push -u origin main
+
