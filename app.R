@@ -1,14 +1,20 @@
+options(shiny.fullstacktrace = TRUE)
+options(error = function() {
+  traceback(3)
+  quit(status = 1)
+})
+
+cat("Working directory:\n")
+print(getwd())
+
+cat("Files in app directory:\n")
+print(list.files(recursive = TRUE))
 library(shiny)
 library(tidyverse)
 library(maps)
 library(scales)
 library(viridis)
 
-library(shiny)
-library(tidyverse)
-library(maps)
-library(scales)
-library(viridis)
 
 print(getwd())
 print(list.files())
