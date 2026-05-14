@@ -1,20 +1,8 @@
-options(shiny.fullstacktrace = TRUE)
-options(error = function() {
-  traceback(3)
-  quit(status = 1)
-})
-
-cat("Working directory:\n")
-print(getwd())
-
-cat("Files in app directory:\n")
-print(list.files(recursive = TRUE))
 library(shiny)
 library(tidyverse)
 library(maps)
 library(scales)
 library(viridis)
-
 
 print(getwd())
 print(list.files())
@@ -287,16 +275,6 @@ server <- function(input, output) {
 
 shinyApp(ui = ui, server = server)
 
-list.files()
-rsconnect::writeManifest(
-  appDir = ".",
-  appPrimaryDoc = "app.R",
-  appMode = "shiny"
-)
-git remote set-url origin https://github.com/jlefkowicz/honey_shiny_app.git
-
-
-cd "/Users/joshlefkowicz/Geneseo Courses/Data Analytics/DANL 310/honey_shiny_app"
 
 
 
