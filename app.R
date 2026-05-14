@@ -4,8 +4,21 @@ library(maps)
 library(scales)
 library(viridis)
 
-honey <- read_csv("honeyproduction.csv")
+library(shiny)
+library(tidyverse)
+library(maps)
+library(scales)
+library(viridis)
 
+print(getwd())
+print(list.files())
+
+if (!file.exists("honeyproduction.csv")) {
+  stop("honeyproduction.csv was not found in the app directory. Files available are: ",
+       paste(list.files(), collapse = ", "))
+}
+
+honey <- readr::read_csv("honeyproduction.csv", show_col_types = FALSE)
 honey_clean <- honey %>%
   mutate(
     year = as.integer(year),
@@ -274,7 +287,7 @@ rsconnect::writeManifest(
   appPrimaryDoc = "app.R",
   appMode = "shiny"
 )
-
+git remote set-url origin https://github.com/jlefkowicz/honey_shiny_app.git
 
 
 cd "/Users/joshlefkowicz/Geneseo Courses/Data Analytics/DANL 310/honey_shiny_app"
